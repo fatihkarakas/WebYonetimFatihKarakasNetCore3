@@ -28,7 +28,6 @@ namespace WebYonetimFatihKarakasNetCore3.Controllers
         public async Task<IActionResult> Index()
         {
            
-
             List<Post> gonderiler = await karakasContext.Post
                .Include("Category")
                .Include("Comment")
