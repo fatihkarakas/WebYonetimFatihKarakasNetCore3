@@ -1,0 +1,87 @@
+﻿@model WebYonetimFatihKarakasNetCore3.Models.ModelView.YorumMesaj
+<h3 class="alert alert-info">Yorumlar</h3>
+<table class="table table-hover table-striped table-info">
+    <thead>
+        <tr>
+            <th>
+              Tam Adı 
+            </th>
+            <th>
+                Email Adresi 
+            </th>
+            <th>
+               İçerik 
+            </th>
+            <th>
+                Durum 
+            </th>
+            <th>
+               Tarih 
+            </th>
+            <th>
+              Başlık
+            </th>
+            <th>
+              IP Adresi
+            </th>
+         
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Comments) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAccept)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Post.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IpAdres)
+            </td>
+           
+        </tr>
+}
+    </tbody>
+</table>
+
+<hr />
+<h3 class="alert alert-info">MESAJLAR</h3>
+<table class="table table-hover table-striped table-info">
+    <thead>
+        <tr>
+            <th>Tam Adı</th>
+            <th>E-Posta Adresi</th>
+            <th>Mesaj İçerik</th>
+            <th>Tarih</th>
+            <th>IP Adresi</th>
+        </tr>
+      
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Mesajlars)
+       {
+          <tr>
+              <td>@item.TamAd</td>
+              <td>@item.Eposta</td>
+              <td>@item.Mesaj</td>
+              <td>@item.Zaman</td>
+              <td>@item.Ipadres</td>
+        </tr>  
+       }
+       
+    </tbody>
+
+    </table>
