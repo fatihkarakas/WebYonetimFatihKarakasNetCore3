@@ -27,7 +27,7 @@ namespace WebYonetimFatihKarakasNetCore3.Controllers
 
         public async Task<IActionResult> Index()
         {
-           
+
             List<Post> gonderiler = await karakasContext.Post
                .Include("Category")
                .Include("Comment")
@@ -58,8 +58,20 @@ namespace WebYonetimFatihKarakasNetCore3.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                return View(nameof(Index));
+                Post p = new Post()
+                {
+                   PicturePath=post.PicturePath,
+                   Title = post.Title,
+                   ShortContent = post.ShortContent,
+                   FullContent = post.FullContent,
+                   CategoryId = post.CategoryId,
+                   IsActive = post.IsActive,
+                   UpdateDate = DateTime.Now,
+                   ViewCount = post.ViewCount
+                };
+                karakasContext.Update(p);
+                var sonuc = await karakasContext.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
             else
             {
@@ -67,6 +79,36 @@ namespace WebYonetimFatihKarakasNetCore3.Controllers
                 return RedirectToAction("Error");
             }
 
+        }
+
+        [Authorize]
+        public  IActionResult GonderiEkle()
+        {
+            List<Category> categories = karakasContext.Category
+                .Where(x=> x.IsActive)
+                .ToList();
+            ViewBag.Categories = categories;
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> GonderiEkle(Post gonderi)
+        {
+            if (ModelState.IsValid)
+            {
+                gonderi.CreateDate = DateTime.Now;
+                gonderi.UpdateDate = DateTime.Now;
+                Post p = gonderi;
+                karakasContext.Add(p);
+                 var sonuc =await  karakasContext.SaveChangesAsync();
+                if (sonuc==1)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewBag.Hata = "Hata oluştu";
+            }
+            return View();
         }
 
         [AllowAnonymous]

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using WebYonetimFatihKarakasNetCore3.Models.Entitys;
@@ -6,10 +7,11 @@ using WebYonetimFatihKarakasNetCore3.Models.ModelView;
 
 namespace WebYonetimFatihKarakasNetCore3.Controllers
 {
+    [Authorize]
     public class YorumlarController : Controller
     {
         private readonly KarakasContext karakasContext;
-public YorumlarController(KarakasContext karakasContext)
+        public YorumlarController(KarakasContext karakasContext)
         {
             this.karakasContext = karakasContext;
         }

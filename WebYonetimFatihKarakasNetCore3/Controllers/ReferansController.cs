@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using WebYonetimFatihKarakasNetCore3.Models.Entitys;
 
 namespace WebYonetimFatihKarakasNetCore3.Controllers
 {
+    [Authorize]
     public class ReferansController : Controller
     {
         private readonly KarakasContext karakasContext;
@@ -21,6 +23,11 @@ namespace WebYonetimFatihKarakasNetCore3.Controllers
             var mesaj = TempData["result"] == null ? string.Empty : TempData["result"];
             ViewData["result"] = mesaj;
             return View(referans);
+        }
+
+        public IActionResult ReferansEkle()
+        {
+            return View();
         }
 
 

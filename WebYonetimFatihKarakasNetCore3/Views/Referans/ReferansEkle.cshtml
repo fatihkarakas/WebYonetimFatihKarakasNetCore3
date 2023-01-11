@@ -1,0 +1,77 @@
+﻿@model WebYonetimFatihKarakasNetCore3.Models.Entitys.Referanslar
+
+@{
+    ViewData["Title"] = "ReferansEkle";
+}
+
+<h2>ReferansEkle</h2>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="ReferansEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Baslik" class="control-label"></label>
+                <input asp-for="Baslik" class="form-control" />
+                <span asp-validation-for="Baslik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aciklama" class="control-label"></label>
+                 @Html.TextAreaFor(model => model.Aciklama, new { @id = "editor1" })
+                 <span asp-validation-for="Aciklama" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ResimAdres" class="control-label"></label>
+                <input asp-for="ResimAdres" class="form-control" />
+                <span asp-validation-for="ResimAdres" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ProjeAktifmi" /> @Html.DisplayNameFor(model => model.ProjeAktifmi)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CalismaSuresi" class="control-label"></label>
+                <input asp-for="CalismaSuresi" class="form-control" />
+                <span asp-validation-for="CalismaSuresi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Platform" class="control-label"></label>
+                <input asp-for="Platform" class="form-control" />
+                <span asp-validation-for="Platform" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kurum" class="control-label"></label>
+                <input asp-for="Kurum" class="form-control" />
+                <span asp-validation-for="Kurum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LinUrl" class="control-label"></label>
+                <input asp-for="LinUrl" class="form-control" />
+                <span asp-validation-for="LinUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Yayinda" /> @Html.DisplayNameFor(model => model.Yayinda)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Referans Ekle " class="btn btn-primary btn-lg"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        CKEDITOR.replace("editor1")
+    </script>
+}

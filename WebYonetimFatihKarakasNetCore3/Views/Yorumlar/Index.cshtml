@@ -4,9 +4,18 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h2 > Yorumlar  </h2>
 
-
+<div class="row mb-3">
+    <div class="col-md-6">
+        <a asp-action="TumList" asp-controller="Yorumlar" class="btn btn-lg btn-success">
+            <i class="fa fa-plug-circle-plus">
+                Tüm Yorumlar
+            </i>
+        </a>
+    </div>
+</div>
+<hr />
 <table class="table table-hover table-striped table-info">
     <thead>
         <tr>
@@ -65,9 +74,8 @@
                 @Html.DisplayFor(modelItem => item.Post.Id)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i>  Düzenleme </a> |
+               
             </td>
         </tr>
 }
