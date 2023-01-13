@@ -114,6 +114,15 @@ namespace WebYonetimFatihKarakasNetCore3.Controllers
         [AllowAnonymous]
         public IActionResult Privacy()
         {
+            ViewData["result"] = "1";
+             return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public IActionResult Privacy(string testveri)
+        {
+            ViewData["result"] = testveri;
             return View();
         }
 

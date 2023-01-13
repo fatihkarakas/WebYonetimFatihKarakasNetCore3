@@ -1,6 +1,49 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
-}
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+}
+
+<h2><strong>Gizlilik Politikası Nedir?</strong></h2>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Privacy">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group ">
+                        
+                        <input name="testveri" placeholder="Yaz bakalım bİrşeyler" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <input type="submit" value="Gönder Bakalım" class="btn btn-primary btn-lg" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@if(ViewData["result"].ToString().Length >3)
+{<div class="alert alert-info text-center">@ViewData["result"] </div>}
+
+
+<p>Gizlilik Politikasının temeli Veri Koruması Hukuku&#39;na ve&nbsp;Kişisel verilerin korunması ile ilgili cesitli kanunlara dayanır.</p>
+
+<p>İnternet sitenizi veya uygulamanızı kullanan kişilerin kişisel verilerini toplayabilirsiniz. Bunu &ccedil;eşitli ama&ccedil;larla ve &ccedil;eşitli y&ouml;ntemlerle yapabilirsiniz. İster kullanıcıların cevaplayacağı &uuml;yelik, kullanım veya anket soruları sorarsınız ya da&nbsp;arka planda kullanıcının trafik dahil t&uuml;m bilgilerini başka bir uygulama vasıtasıyla (&Ccedil;erezler, vs.) toplarsınız. Her hal&uuml;karda siz bu kişilerin bir &ccedil;ok kişisel verisini edinmiş olursunuz.</p>
+
+<p>Veri Koruması Hukuku &ccedil;er&ccedil;evesinde bu verileri belirli raporlamalar amacıyla veya ticari ama&ccedil;la işleyebilirsiniz. Bunun i&ccedil;in kullanıcıya kendisiyle ilgili kişisel verileri nasıl topladığınızı, bu verileri ne yapacağınızı, ne kadar s&uuml;re ile elinizde tutacağınızı ve nasıl işleyeceğini bildirmeniz gerekir. Bu bildirimin yapıldığı metne de &quot;Gizlilik Politikası&quot; denir. Kullanıcılar da internet sitenize veya uygulamanıza girerek veya &uuml;ye olurken tıklayarak gizlilik politikasına onay verirler. Kullanıcıların, kişisel verilerinin nasıl kullanılacağını bu metin i&ccedil;erisinde g&ouml;rmeleri gerekir. Kullanıcılar bu sayede internet sitenizi veya uygulamanızı kullanmaya devam ederler veya &uuml;yelik aşamasında Gizlilik Politikasına onay verirler.</p>
+
+<h2><strong>Gizlilik Politikasında Bulunması Gereken Hususlar</strong></h2>
+
+<p>Kişisel verilerle ilgili birinci kural edindiğiniz bilgileri kimse ile paylaşmamanızdır. Ancak bunun en &ouml;nemli istisnası resmi mercilerden gelen yazılı talepler doğrultusunda kullanıcıların bilgilerinin resmi merciler ile paylaşılacağıdır. Bu durum siz belirtmeseniz dahi ge&ccedil;erlidir.</p>
+
+<p>Bunun haricinde toplanan kişisel verilerin ne ama&ccedil;la kullanılacağını belirtmeniz gerekir. İşinizin &ouml;zelliğine g&ouml;re topladığınız kişisel verileri pazarlama amacıyla, &uuml;r&uuml;n geliştirme amacıyla, profilleme ve istatistiki &ccedil;alışmalar gibi ama&ccedil;larla kullanabilirsiniz. Ancak ne ama&ccedil;la kullanırsanız kullanın, kişisel verileri kullanım amacınızı Gizlilik Politikası&#39;nda a&ccedil;ık&ccedil;a belirtmeniz gerekir. Topladığınız kişisel verileri Gizlilik Politikası&#39;nda belirtmediğiniz ama&ccedil;lar dışında işleyemezsiniz.</p>
+
+<p>Bunun haricinde opladığınız kişisel verileri ne kadar s&uuml;re ile elinizde tutacağınızı, işleyip anonimleştirip anonimleştirmeyeceğinizi ve hangi t&uuml;r bilgileri topladığınızı da Gizlilik Politikası&#39;nda belirmeniz gerekir.</p>
+
+
+
+
