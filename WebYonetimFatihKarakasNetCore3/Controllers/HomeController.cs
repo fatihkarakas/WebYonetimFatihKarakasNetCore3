@@ -42,7 +42,7 @@ namespace WebYonetimFatihKarakasNetCore3.Controllers
 
             return RedirectToAction("Error");
         }
-
+        [Authorize(Roles = "Admin,Personel,staff")]
         public async Task<IActionResult> Edit(string Id)
         {
 
@@ -56,21 +56,12 @@ namespace WebYonetimFatihKarakasNetCore3.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Post post)
         {
+            post.UpdateDate  = DateTime.Now;
+            var tarih = post.CreateDate;
             if (ModelState.IsValid)
             {
-                Post p = new Post()
-                {
-                   PicturePath=post.PicturePath,
-                   Title = post.Title,
-                   ShortContent = post.ShortContent,
-                   FullContent = post.FullContent,
-                   CategoryId = post.CategoryId,
-                   IsActive = post.IsActive,
-                   UpdateDate = DateTime.Now,
-                   ViewCount = post.ViewCount
-                };
-                karakasContext.Update(p);
-                var sonuc = await karakasContext.SaveChangesAsync();
+                karakasContext.Update(post);
+                await karakasContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -129,7 +120,7 @@ namespace WebYonetimFatihKarakasNetCore3.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, ErrMessage="Hata Oluştu" });
         }
 
         [AllowAnonymous]
