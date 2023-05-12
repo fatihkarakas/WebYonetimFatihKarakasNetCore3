@@ -45,7 +45,7 @@ namespace WebYonetimFatihKarakasNetCore3.Controllers
         [Authorize(Roles = "Admin,Personel,staff")]
         public async Task<IActionResult> Edit(string Id)
         {
-
+              //Test verisi
             Post gonderi = await karakasContext.Post.SingleAsync(xy => xy.Id == Convert.ToInt32(Id));
             if (gonderi == null)
             {
